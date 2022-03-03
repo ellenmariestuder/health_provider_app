@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+// import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
 
-function App() {
+// screens
+// import Navbar from './components/Navbar/Navbar';
+import Welcome from './components/Welcome/Welcome';
+import View1 from './components/View1/View1';
+import View2 from './components/View2/View2';
+
+
+function App(props) {
+  const [name, setName] = useState('');
+  
   return (
+
+    <Router>
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        {/* <Navbar /> */}
+      <Routes>
+      {/* <Route exact path='/' element={<Welcome name={name}/>} /> */}
+      <Route exact path='/' element={<Welcome setName={setName} name={name}/>} />
+      {/* <Route exact path='/' element={<Welcome setName={setName} name={e => setName(", " + e.target.value)}/>} /> */}
+      <Route exact path='/view1' element={<View1 name={name}/>} />
+      <Route exact path='/view2' element={<View2 />} />
+      </Routes>
     </div>
+    </Router>
   );
 }
 

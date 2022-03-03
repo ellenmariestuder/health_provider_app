@@ -1,0 +1,27 @@
+.welcome {
+  margin: 20px;
+}
+
+.header {
+  margin: 30px;
+  font-size: 60px;
+  color: blue;
+}
+
+/* form {
+  align-content: center;
+}
+*/
+
+input {
+  /* display: flex;
+  align-self: center;
+  justify-items: center; */
+  width: 30%;
+  margin-left: 35%;
+  margin-right: 35%;
+} 
+
+.enter {
+  margin: 10px;
+}
