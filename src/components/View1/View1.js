@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { Typography, Button, CssBaseline, AppBar, Toolbar, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Checkbox, TablePagination } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
+import View2 from '../View2/View2';
+
 const useStyles = makeStyles(() => ({
   logo: {
     marginRight: '10px',
@@ -29,7 +31,7 @@ const useStyles = makeStyles(() => ({
   },
   backButton: {
     marginLeft: 'auto',
-    // backgroundColor: 'white',
+    color: 'white',
   },
   footer: {
     backgroundColor: '#eee',
@@ -54,13 +56,13 @@ const columns = [
     label: 'Followed Up',
   },
   {
-    id: 'update',
-    label: 'Update',
+    id: 'view',
+    label: 'View',
   },
 ];
 
-function createData(name, status, followup, update) {
-  return { name, status, followup, update };
+function createData(name, status, followup, view) {
+  return { name, status, followup, view };
 }
 
 const rows = [
@@ -71,14 +73,6 @@ const rows = [
   createData('Shawn Carter', 'Good'),
   createData('Amala Diamini', 'Fair'),
   createData('Belcalis Almanzar', 'Poor'),
-  // createData('Ireland', 'IE'),
-  // createData('Mexico', 'MX'),
-  // createData('Japan', 'JP'),
-  // createData('France', 'FR'),
-  // createData('United Kingdom', 'GB'),
-  // createData('Russia', 'RU', 146793744, 17098246),
-  // createData('Nigeria', 'NG', 200962417, 923768),
-  // createData('Brazil', 'BR', 210147125, 8515767),
 ];
 
 
@@ -111,14 +105,13 @@ function View1(props) {
             className={classes.backButton}
             component={Link} to="/"
             variant="outlined"
-            // color="white"
-            >
+          >
             Logout
           </Button>
         </Toolbar>
       </AppBar>
       <main>
-        <Typography className={classes.header} variant="h4">Hello {props.name}.</Typography>
+        {/* <Typography className={classes.header} variant="h4">Hello {props.name}.</Typography> */}
         <Typography className={classes.quickActions} variant="h5">Quick Actions</Typography>
         <Button
           className={classes.actionButtons}
@@ -128,13 +121,13 @@ function View1(props) {
         >
           Add Patient
         </Button>
-        <Button 
-        className={classes.actionButtons}
-        color="primary" 
-        variant="contained"
+        <Button
+          className={classes.actionButtons}
+          color="primary"
+          variant="contained"
         >
           Update Patient
-          </Button>
+        </Button>
         <Button className={classes.actionButtons} variant="contained">Delete Patient</Button>
 
         <div className={classes.table}>
@@ -162,7 +155,7 @@ function View1(props) {
                       <TableCell>{row.name}</TableCell>
                       <TableCell>{row.status}</TableCell>
                       <TableCell><Checkbox /></TableCell>
-                      <TableCell><Button variant="outlined" color="primary" size="small">Update</Button></TableCell>
+                      <TableCell><View2 /></TableCell>
                     </TableRow>
                   ))}
               </TableBody>

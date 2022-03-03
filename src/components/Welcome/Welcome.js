@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import { Typography, Button, CssBaseline, TextField } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
@@ -21,6 +21,10 @@ function Welcome ( props ) {
 
   const logo = "https://www.chcs.org/media/memora-health-logo.png";
 
+  function handleChange(e) {
+    setName(e.target.value);
+  }
+
   console.log(name);
   console.log(props);
 
@@ -36,6 +40,9 @@ function Welcome ( props ) {
         variant="standard"
         placeholder="Enter your name"
         onChange={e => setName(", " + e.target.value)} 
+        // onChange={e => setName(e.target.value)} 
+        // value={name}
+        // onchange={handleChange}
         >
       </TextField>
 
@@ -44,7 +51,9 @@ function Welcome ( props ) {
           variant="contained" 
           color="primary"
           // onClick={useEffect(() => {setName(name)}, [name])}
-          onClick={() => setName(name)}
+          // onClick={() => setName(name)}
+          // value={name}
+          onClick={handleChange}
           >
           Enter Site
         </Button>
